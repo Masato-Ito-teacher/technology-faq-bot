@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>技術科AIアシスタント</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <!-- ヘッダー -->
+    <header class="hero">
+      <div class="header-content">
+        <div class="logo-area">🔧</div>
+        <div>
+          <h1>技術科AIアシスタント</h1>
+          <p>中学校技術科のよくある質問に、わかりやすくお答えします。</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- 質問入力エリア -->
+    <section class="question-box">
+      <h2>❓ 質問を検索</h2>
+      <div class="input-row">
+        <input 
+          id="questionInput" 
+          type="text" 
+          placeholder="例：木材を切る、プログラミング、電気、安全..." 
+        />
+        <button id="sendButton" type="button">🔍 検索</button>
+      </div>
+      <p class="hint">キーワードを入力して検索します。複合キーワードもOKです。</p>
+      
+      <!-- 回答表示エリア -->
+      <div id="answerArea" class="answer-card hidden">
+        <div class="answer-content">
+          <h3 id="answerTitle"></h3>
+          <p id="answerText"></p>
+          <div id="answerCategory" class="answer-category"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- カテゴリフィルター -->
+    <section class="category-filter">
+      <h2>📚 カテゴリから探す</h2>
+      <div class="category-buttons">
+        <button class="category-btn active" data-category="all">すべて</button>
+        <button class="category-btn" data-category="材料と加工">材料と加工</button>
+        <button class="category-btn" data-category="情報">情報</button>
+        <button class="category-btn" data-category="エネルギー変換">⚡ エネルギー変換</button>
+        <button class="category-btn" data-category="生物育成">🌱 生物育成</button>
+        <button class="category-btn" data-category="プログラミング">💻 プログラミング</button>
+        <button class="category-btn" data-category="安全">🛡️ 安全</button>
+      </div>
+    </section>
+
+    <!-- FAQ一覧 -->
+    <section class="faq-section">
+      <h2>FAQ一覧</h2>
+      <div id="faqContainer" class="faq-container">
+        <!-- ここに FAQ カードが生成されます -->
+      </div>
+    </section>
+
+  </main>
+
+  <script src="faqData.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
