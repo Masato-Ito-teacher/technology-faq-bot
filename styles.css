@@ -14,8 +14,16 @@
   --text: #1a202c;
   --text-light: #4a5568;
   --border: #cbd5e0;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.15);
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+  /* カテゴリ別カラー */
+  --cat-material: #d97706;
+  --cat-info: #7c3aed;
+  --cat-energy: #0891b2;
+  --cat-biology: #059669;
+  --cat-programming: #db2777;
+  --cat-safety: #dc2626;
 }
 
 * {
@@ -29,15 +37,16 @@ html {
 body {
   margin: 0;
   font-family: "Noto Sans JP", "Segoe UI", sans-serif;
-  background-color: var(--bg);
+  /* Googleサイトへの埋め込み時に背景が馴染むよう白系に */
+  background-color: #f8fafc;
   color: var(--text);
   line-height: 1.6;
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 16px;
+  padding: 12px;
 }
 
 /* ==============================================================
@@ -45,48 +54,48 @@ body {
    ============================================================== */
 .hero {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  border-radius: 16px;
-  padding: 32px 24px;
+  border-radius: 14px;
+  padding: 20px 20px;
   box-shadow: var(--shadow-lg);
-  margin-bottom: 28px;
+  margin-bottom: 16px;
   color: white;
 }
 
 .header-content {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 .logo-area {
-  font-size: 3rem;
-  min-width: 60px;
+  font-size: 2.4rem;
+  min-width: 48px;
   text-align: center;
 }
 
 .hero h1 {
-  margin: 0 0 8px;
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin: 0 0 4px;
+  font-size: clamp(1.3rem, 4vw, 2rem);
   font-weight: 700;
 }
 
 .hero p {
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
   opacity: 0.95;
 }
 
 /* ==============================================================
-   質問入力エリア
+   質問入力エリア・カテゴリフィルター・FAQ セクション共通
    ============================================================== */
 .question-box,
 .category-filter,
 .faq-section {
   background: var(--card);
-  border-radius: 16px;
-  padding: 24px;
+  border-radius: 14px;
+  padding: 18px 20px;
   box-shadow: var(--shadow);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   border: 1px solid var(--border);
 }
 
@@ -94,22 +103,21 @@ body {
 .category-filter h2,
 .faq-section h2 {
   margin-top: 0;
-  margin-bottom: 16px;
-  font-size: 1.3rem;
+  margin-bottom: 14px;
+  font-size: 1.15rem;
   color: var(--text);
 }
 
 .input-row {
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 input[type="text"] {
   flex: 1;
-  min-width: 200px;
-  padding: 12px 16px;
+  min-width: 0;
+  padding: 10px 14px;
   border: 2px solid var(--border);
   border-radius: 10px;
   font-size: 1rem;
@@ -124,7 +132,7 @@ input[type="text"]:focus {
 }
 
 button {
-  padding: 12px 24px;
+  padding: 10px 20px;
   border: none;
   border-radius: 10px;
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
@@ -139,7 +147,7 @@ button {
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.3);
   background: linear-gradient(135deg, var(--primary-dark), var(--primary));
 }
 
@@ -149,7 +157,7 @@ button:active {
 
 .hint {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-light);
 }
 
@@ -157,8 +165,8 @@ button:active {
    回答カード
    ============================================================== */
 .answer-card {
-  margin-top: 20px;
-  padding: 20px;
+  margin-top: 16px;
+  padding: 16px;
   border-radius: 12px;
   background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
   border: 2px solid var(--primary);
@@ -168,7 +176,7 @@ button:active {
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
   to {
     opacity: 1;
@@ -176,29 +184,25 @@ button:active {
   }
 }
 
-.answer-content {
-  position: relative;
-}
-
 .answer-content h3 {
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   color: var(--primary-dark);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 
 .answer-content p {
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   color: var(--text);
   line-height: 1.8;
 }
 
 .answer-category {
   display: inline-block;
-  padding: 6px 12px;
+  padding: 4px 12px;
   background: var(--primary);
   color: white;
   border-radius: 8px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
 }
 
@@ -212,31 +216,32 @@ button:active {
 .category-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .category-btn {
-  padding: 10px 16px;
+  padding: 8px 14px;
   border: 2px solid var(--border);
   background: white;
   color: var(--text);
-  border-radius: 10px;
+  border-radius: 20px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
 }
 
 .category-btn:hover {
   border-color: var(--primary);
   color: var(--primary);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .category-btn.active {
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
   color: white;
   border-color: transparent;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
 }
 
 /* ==============================================================
@@ -244,155 +249,194 @@ button:active {
    ============================================================== */
 .faq-container {
   display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
 .faq-card {
   background: white;
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 18px;
+  padding: 16px;
   box-shadow: var(--shadow);
   transition: all 0.2s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
 .faq-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
   border-color: var(--primary);
 }
 
 .faq-card-header {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .faq-card-header h3 {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.4;
+  font-size: 0.97rem;
+  line-height: 1.45;
   color: var(--text);
   flex: 1;
 }
 
+/* カテゴリバッジ — カテゴリ別カラー */
 .faq-category-badge {
   display: inline-block;
-  padding: 4px 10px;
-  background: var(--primary);
-  color: white;
+  padding: 3px 8px;
   border-radius: 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
   white-space: nowrap;
   flex-shrink: 0;
+  color: white;
+  background: var(--primary);
 }
 
+.faq-category-badge[data-category="材料と加工"]   { background: var(--cat-material); }
+.faq-category-badge[data-category="情報"]         { background: var(--cat-info); }
+.faq-category-badge[data-category="エネルギー変換"] { background: var(--cat-energy); }
+.faq-category-badge[data-category="生物育成"]     { background: var(--cat-biology); }
+.faq-category-badge[data-category="プログラミング"] { background: var(--cat-programming); }
+.faq-category-badge[data-category="安全"]         { background: var(--cat-safety); }
+
 .faq-answer {
-  margin: 12px 0;
+  margin: 0 0 10px;
   color: var(--text-light);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.6;
+  flex: 1;
+  /* 長文は3行で省略 */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .faq-keywords {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 12px;
-  padding-top: 12px;
+  gap: 5px;
+  margin-top: auto;
+  padding-top: 10px;
   border-top: 1px solid var(--border);
 }
 
 .keyword-tag {
   display: inline-block;
-  padding: 4px 10px;
-  background: rgba(37, 99, 235, 0.1);
+  padding: 2px 8px;
+  background: rgba(37, 99, 235, 0.08);
   color: var(--primary);
-  border-radius: 6px;
-  font-size: 0.8rem;
+  border-radius: 5px;
+  font-size: 0.75rem;
 }
 
 .no-result {
   text-align: center;
   color: var(--text-light);
-  padding: 40px 20px;
+  padding: 32px 16px;
+  grid-column: 1 / -1;
 }
 
 /* ==============================================================
-   レスポンシブ対応
+   レスポンシブ対応（タブレット・スマホ）
    ============================================================== */
 @media (max-width: 768px) {
   .container {
-    padding: 12px;
+    padding: 8px;
   }
 
   .hero {
-    padding: 20px 16px;
+    padding: 16px 14px;
+    border-radius: 12px;
   }
 
   .header-content {
-    gap: 12px;
+    gap: 10px;
   }
 
   .logo-area {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    min-width: 36px;
   }
 
   .hero h1 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
   .hero p {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
   }
 
   .question-box,
   .category-filter,
   .faq-section {
-    padding: 16px;
+    padding: 14px;
+    border-radius: 12px;
   }
 
   .input-row {
     flex-direction: column;
+    gap: 8px;
   }
 
-  button {
+  #sendButton {
     width: 100%;
   }
 
   .category-buttons {
-    gap: 8px;
+    gap: 6px;
   }
 
   .category-btn {
-    flex: 1;
+    flex: 1 0 calc(50% - 6px);
     min-width: 100px;
-    padding: 8px 12px;
-    font-size: 0.9rem;
+    padding: 7px 10px;
+    font-size: 0.82rem;
+    text-align: center;
   }
 
   .faq-container {
     grid-template-columns: 1fr;
   }
 
-  .faq-card-header {
-    flex-direction: column;
-    align-items: flex-start;
+  .faq-card {
+    padding: 14px;
   }
 
-  .faq-category-badge {
-    width: 100%;
-    text-align: center;
+  /* スマホではカードヘッダーを縦並びに */
+  .faq-card-header {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 6px;
   }
 }
+
+/* ==============================================================
+   超小型スマホ対応（iPhone SE など 375px 以下）
+   ============================================================== */
+@media (max-width: 400px) {
+  .hero h1 {
+    font-size: 1.05rem;
   }
 
-  button {
-    width: 100%;
+  .category-btn {
+    flex: 1 0 calc(50% - 6px);
+    font-size: 0.78rem;
+    padding: 6px 6px;
+  }
+
+  .faq-card-header h3 {
+    font-size: 0.9rem;
+  }
+
+  .faq-answer {
+    font-size: 0.85rem;
   }
 }

@@ -125,7 +125,7 @@ function displayFAQs(category) {
       card.innerHTML = `
         <div class="faq-card-header">
           <h3>${item.question}</h3>
-          <span class="faq-category-badge">${item.category}</span>
+          <span class="faq-category-badge" data-category="${item.category}">${item.category}</span>
         </div>
         <p class="faq-answer">${item.answer}</p>
         <div class="faq-keywords">
